@@ -2,7 +2,7 @@
 remote_theme: just-the-docs/just-the-docs
 # 关闭 Just the Docs 的默认页脚版权提示
 aux_links_new_tab: true
-title: 浙江省乐清中学信奥队
+title: 乐中信奥
 footer_content: ""
 plugins:
   - jekyll-remote-theme
