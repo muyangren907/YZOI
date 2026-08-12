@@ -6,6 +6,12 @@ nav_order: 1
 
 # 🏆 浙江省乐清中学信奥队
 ---
+<div style="text-align: left; margin-top: 50px; display: flex; align-items: center; gap: 8px;">
+  <span style="font-size: 14px; color: #555; font-weight: bold;">本站访问次数：</span>
+  <a href="https://github.com/muyangren907/YZOI" target="_blank">
+    <img src="https://visitor-badge.laobi.icu/badge?page_id=muyangren907.YZOI" alt="visitor badge" style="vertical-align: middle;">
+  </a>
+</div>
 
 ## 📬 联系我们
 
@@ -72,9 +78,3 @@ nav_order: 1
         crossorigin="anonymous"
         async>
 </script>
-
-<div style="text-align: left; margin-top: 50px;">
-  <a href="https://github.com/muyangren907/YZOI" target="_blank">
-    <img src="https://visitor-badge.laobi.icu/badge?page_id=muyangren907.YZOI" alt="visitor badge">
-  </a>
-</div>
