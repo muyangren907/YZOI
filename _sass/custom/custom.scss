@@ -2,11 +2,3 @@
 .main-content-wrap {
     max-width: 100% !important; 
   }
-
-/* 彻底隐藏 Just the Docs 左下角的默认版权提示 */
-.site-footer,
-.site-header + *,
-p.text-small.text-grey-dk-000.mb-0 {
-  display: none !important;
-}
-
