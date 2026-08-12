@@ -53,7 +53,7 @@ nav_order: 1
 👇 [**速速加入乐中信奥，让美好人生从点击开始！**](https://www.luogu.com.cn/team/108362)  
 
 ---
-<div style="text-align: center; margin-top: 50px;">
+<div style="text-align: left; margin-top: 50px;">
   <a href="https://github.com/muyangren907/YZOI" target="_blank">
     <img src="https://visitor-badge.laobi.icu/badge?page_id=muyangren907.YZOI" alt="visitor badge">
   </a>
