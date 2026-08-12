@@ -1,11 +1,4 @@
-/* 移除主体内容的最大宽度限制，使其自适应屏幕宽度 */
+/* 调整正文内容的最大宽度，数字可以根据需要自行修改（如 100% 为全屏，或者 1200px） */
 .main-content-wrap {
-    max-width: none !important;
-    padding-left: 40px !important; /* 根据需要调整左右内边距 */
-    padding-right: 40px !important;
-  }
-  
-  /* 同样调整正文容器的宽度限制 */
-  .main-content {
-    max-width: none !important;
+    max-width: 100% !important; 
   }
