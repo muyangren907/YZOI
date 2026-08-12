@@ -1,11 +1,27 @@
-/* 移除主体内容的最大宽度限制，使其自适应屏幕宽度 */
-.main-content-wrap {
+/* 1. 解除页面整体网格容器的宽度限制 */
+.side-bar {
+    flex-shrink: 0; // 防止左侧菜单被挤压
+  }
+  
+  .main-content-wrap {
     max-width: none !important;
-    padding-left: 40px !important; /* 根据需要调整左右内边距 */
+    width: 100% !important;
+    padding-left: 40px !important;
     padding-right: 40px !important;
   }
   
-  /* 同样调整正文容器的宽度限制 */
+  /* 2. 解除 Just the Docs 页面主结构的最大宽度限制 */
+  .main {
+    max-width: none !important;
+    width: 100% !important;
+  }
+  
+  /* 3. 让表格等 Markdown 块级元素在宽屏下能够完全撑开 */
   .main-content {
     max-width: none !important;
+    width: 100% !important;
+  }
+  
+  table {
+    width: 100%; // 让表格默认撑满容器宽度
   }
