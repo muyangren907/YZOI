@@ -2,3 +2,39 @@
 .main-content-wrap {
     max-width: 100% !important; 
   }
+
+/* 彻底隐藏 Just the Docs 左下角的默认版权提示 */
+.site-footer,
+.site-header + *,
+p.text-small.text-grey-dk-000.mb-0 {
+  display: none !important;
+}
+
+/* 调整侧边栏宽度，适应较长的标题 */
+.side-bar {
+    width: 300px !important; /* 你可以根据标题长度适当增加这个数值 */
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  /* 确保标题在侧边栏内显示得更好 */
+  .site-title {
+    font-size: 1.2rem !important; /* 适当减小标题字体，防止它显得太大 */
+    line-height: 1.4 !important; /* 增加行高，让两行文字看起来更舒适 */
+    word-break: break-all;      /* 如果还是太长，强制断行 */
+  }
+  
+  /* 调整主要内容区域，使其跟随侧边栏移动 */
+  .main-content-wrap {
+    margin-left: 300px !important; /* 这里的数值必须和上面的侧边栏宽度一致 */
+  }
+  
+  /* 在手机屏幕下恢复原始布局，避免移动端显示异常 */
+  @media screen and (max-width: 59.99rem) {
+    .side-bar {
+      width: 100% !important;
+    }
+    .main-content-wrap {
+      margin-left: 0 !important;
+    }
+  }
