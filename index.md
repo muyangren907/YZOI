@@ -53,6 +53,25 @@ nav_order: 1
 👇 [**速速加入乐中信奥，让美好人生从点击开始！**](https://www.luogu.com.cn/team/108362)  
 
 ---
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="muyangren907/YZOI"
+        data-repo-id="R_kgDOT1kBng"
+        data-category="General"
+        data-category-id="DIC_kwDOT1kBns4DDNmW"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+
 <div style="text-align: left; margin-top: 50px;">
   <a href="https://github.com/muyangren907/YZOI" target="_blank">
     <img src="https://visitor-badge.laobi.icu/badge?page_id=muyangren907.YZOI" alt="visitor badge">
