@@ -10,6 +10,9 @@ nav_exclude: true
 # 内部团队资料
 
 ---
+## 常用软件
+
+[codeblocks](https://github.com/muyangren907/YZOI/releases/download/CB/codeblocks-25.03mingw-setup.exe)
 
 ## 🧩 CSPS 模拟卷·20套
 
