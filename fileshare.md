@@ -3,54 +3,44 @@ title: 内部团队资料
 nav_exclude: true
 ---
 
-# 模拟卷20套
+
 
 ---
 
-[CSPS模拟1](./fileshare/CSPS模拟1.pdf)
-
-[CSPS模拟2](./fileshare/CSPS模拟2.pdf)
-
-[CSPS模拟3](./fileshare/CSPS模拟3.pdf)
-
-[CSPS模拟4](./fileshare/CSPS模拟4.pdf)
-
-[CSPS模拟5](./fileshare/CSPS模拟5.pdf)
-
-[CSPS模拟6](./fileshare/CSPS模拟6.pdf)
-
-[CSPS模拟7](./fileshare/CSPS模拟7.pdf)
-
-[CSPS模拟8](./fileshare/CSPS模拟8.pdf)
-
-[CSPS模拟9](./fileshare/CSPS模拟9.pdf)
-
-[CSPS模拟10](./fileshare/CSPS模拟10.pdf)
-
-[CSPS模拟11](./fileshare/CSPS模拟11.pdf)
-
-[CSPS模拟12](./fileshare/CSPS模拟12.pdf)
-
-[CSPS模拟13](./fileshare/CSPS模拟13.pdf)
-
-[CSPS模拟14](./fileshare/CSPS模拟14.pdf)
-
-[CSPS模拟15](./fileshare/CSPS模拟15.pdf)
-
-[CSPS模拟16](./fileshare/CSPS模拟16.pdf)
-
-[CSPS模拟17](./fileshare/CSPS模拟17.pdf)
-
-[CSPS模拟18](./fileshare/CSPS模拟18.pdf)
-
-[CSPS模拟19](./fileshare/CSPS模拟19.pdf)
-
-[CSPS模拟20](./fileshare/CSPS模拟20.pdf)
+# 内部团队资料
 
 ---
 
+## 🧩 CSPS 模拟卷·20套
 
+| 序号 | 模拟卷名称 |
+|:---:|:---|
+| 01 | [CSPS模拟1](./fileshare/CSPS模拟1.pdf) |
+| 02 | [CSPS模拟2](./fileshare/CSPS模拟2.pdf) |
+| 03 | [CSPS模拟3](./fileshare/CSPS模拟3.pdf) |
+| 04 | [CSPS模拟4](./fileshare/CSPS模拟4.pdf) |
+| 05 | [CSPS模拟5](./fileshare/CSPS模拟5.pdf) |
+| 06 | [CSPS模拟6](./fileshare/CSPS模拟6.pdf) |
+| 07 | [CSPS模拟7](./fileshare/CSPS模拟7.pdf) |
+| 08 | [CSPS模拟8](./fileshare/CSPS模拟8.pdf) |
+| 09 | [CSPS模拟9](./fileshare/CSPS模拟9.pdf) |
+| 10 | [CSPS模拟10](./fileshare/CSPS模拟10.pdf) |
+| 11 | [CSPS模拟11](./fileshare/CSPS模拟11.pdf) |
+| 12 | [CSPS模拟12](./fileshare/CSPS模拟12.pdf) |
+| 13 | [CSPS模拟13](./fileshare/CSPS模拟13.pdf) |
+| 14 | [CSPS模拟14](./fileshare/CSPS模拟14.pdf) |
+| 15 | [CSPS模拟15](./fileshare/CSPS模拟15.pdf) |
+| 16 | [CSPS模拟16](./fileshare/CSPS模拟16.pdf) |
+| 17 | [CSPS模拟17](./fileshare/CSPS模拟17.pdf) |
+| 18 | [CSPS模拟18](./fileshare/CSPS模拟18.pdf) |
+| 19 | [CSPS模拟19](./fileshare/CSPS模拟19.pdf) |
+| 20 | [CSPS模拟20](./fileshare/CSPS模拟20.pdf) |
 
-# SCP
+---
 
-[SCP2022-S](./fileshare/SCP2022-S不含答案放大.pdf)
+## 🧠 SCP 专项题集
+
+| 序号 | 文件 |
+|:---|:---|
+| 1 | [SCP2022-S.pdf](./fileshare/SCP2022-S不含答案放大.pdf) |
+
