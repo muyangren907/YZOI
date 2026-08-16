@@ -51,5 +51,5 @@ nav_exclude: true
 | 4 | [SCP2023-S.pdf](./fileshare/SCP2023-S不含答案.pdf) |
 | 5 | [SCP2024-S.pdf](./fileshare/SCP2024-S不含答案.pdf) |
 | 6 | [SCP2025-S.pdf](./fileshare/SCP2025-S不含答案.pdf) |
-| 7 | [SCP2026-S.pdf](./fileshare/SCP2026-S不含答案.pdf) |
+| 7 | [SCP2026-S.pdf](./fileshare/SCP2026%20S1%20全卷.pdf) |
 
