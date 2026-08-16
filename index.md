@@ -4,14 +4,14 @@ nav_order: 1
 ---
 
 
-# 🏆 浙江省乐清中学信奥队
----
-<div style="text-align: left; margin-top: 50px; display: flex; align-items: center; gap: 8px;">
+# 🏆 浙江省乐清中学信奥队<div style="text-align: left; margin-top: 50px; display: flex; align-items: center; gap: 8px;">
   
   <a href="https://github.com/muyangren907/YZOI" target="_blank">
     <img src="https://visitor-badge.laobi.icu/badge?page_id=muyangren907.YZOI" alt="visitor badge" style="vertical-align: middle;">
   </a>
 </div>
+---
+
 [![主教练-俞挺挺](https://img.shields.io/badge/主教练-俞挺挺-brightgreen?style=for-the-badge)](https://au.cnki.net/author/personalInfo/000076174595?platform=kns-author)
 
 [![洛谷-乐清中学信奥天团](https://img.shields.io/badge/洛谷-乐清中学信奥天团-brightgreen?style=for-the-badge)](https://www.luogu.com.cn/team/108362)
