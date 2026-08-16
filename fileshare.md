@@ -41,9 +41,15 @@ nav_exclude: true
 
 ---
 
-## 🧠 SCP 专项题集
+## 🧠 SCP 
 
 | 序号 | 文件 |
 |:---|:---|
-| 1 | [SCP2022-S.pdf](./fileshare/SCP2022-S不含答案放大.pdf) |
+| 1 | [SCP2020.pdf](./fileshare/2020%20洛谷初赛模拟.pdf) |
+| 2 | [SCP2021-S.pdf](./fileshare/SCP2021不含答案.pdf) |
+| 3 | [SCP2022-S.pdf](./fileshare/SCP2022-S不含答案.pdf) |
+| 4 | [SCP2023-S.pdf](./fileshare/SCP2023-S不含答案.pdf) |
+| 5 | [SCP2024-S.pdf](./fileshare/SCP2024-S不含答案.pdf) |
+| 6 | [SCP2025-S.pdf](./fileshare/SCP2025-S不含答案.pdf) |
+| 7 | [SCP2026-S.pdf](./fileshare/SCP2026-S不含答案.pdf) |
 

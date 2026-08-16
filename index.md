@@ -13,6 +13,7 @@ nav_order: 1
   </a>
 </div>
 
+[![洛谷-乐清中学信奥天团](https://img.shields.io/badge/洛谷-乐清中学信奥天团-brightgreen?style=for-the-badge)](https://www.luogu.com.cn/team/108362)
 
 ## ✨ **浙江省乐清中学信息学竞赛邀请** ✨  
 
