@@ -53,3 +53,13 @@ nav_exclude: true
 | 6 | [SCP2025-S.pdf](./fileshare/SCP2025-S不含答案.pdf) |
 | 7 | [SCP2026-S.pdf](./fileshare/SCP2026%20S1%20全卷.pdf) |
 
+---
+
+## 题解合集
+
+| 序号 | 文件 |
+|:---|:---|
+| 1 | [蜥蜴.pdf](./fileshare/蜥蜴.pdf) |
+| 2 | [卡片.pdf](./fileshare/P2065%20TJOI2011%20卡片.pdf) |
+
+
