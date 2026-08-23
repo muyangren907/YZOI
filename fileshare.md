@@ -64,3 +64,4 @@ nav_exclude: true
 | 3 | [Child to Parent.pdf](./fileshare/Child%20to%20Parent.pdf) |
 | 4 | [Yes or No.pdf](./fileshare/最优策略期望推导Yes%20or%20No.pdf) |
 | 5 | [Sightseeing Plan](https://yzoi.null47.tk/20260823140508.html) |
+| 6 | [Inversions](https://yzoi.null47.tk/20260823173755.html) |
