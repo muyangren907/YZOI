@@ -65,3 +65,12 @@ nav_exclude: true
 | 4 | [Yes or No.pdf](./fileshare/最优策略期望推导Yes%20or%20No.pdf) |
 | 5 | [Sightseeing Plan](https://yzoi.null47.tk/20260823140508.html) |
 | 6 | [Inversions](https://yzoi.null47.tk/20260823173755.html) |
+
+
+## 电子书分享
+| 序号 | 文件 |
+|:---|:---|
+| 1 | [应用近世代数-胡冠章(第三版).pdf](./fileshare/应用近世代数-胡冠章(第三版).pdf) |
+| 2 | [应用近世代数-胡冠章(第三版) 答案.pdf](./fileshare/应用近世代数-胡冠章(第三版)%20答案.pdf) |
+| 3 | [近世代数-丘维生.pdf](./fileshare/近世代数-丘维生.pdf) |
+| 4 | [应用近世代数-胡冠章(第二版).pdf](./fileshare/应用近世代数-胡冠章(第二版).pdf) |
