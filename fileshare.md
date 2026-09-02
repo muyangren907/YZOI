@@ -48,7 +48,7 @@ nav_exclude: true
 | 2 | [CSP2019S.pdf](./fileshare/2019CSP-S1试题(C++)%20.pdf) |
 | 3 | [CSP2020J.pdf](./fileshare/2020CSP-J1试题(C++)%20.pdf) |
 | 4 | [CSP2020S.pdf](./fileshare/2020CSP-S1试题(C++)%20.pdf) |
-| 5 | [SCP2021J.pdf](./fileshare/2021CSP-J1试题(C++)%20.pdf) |
+| 5 | [CSP2021J.pdf](./fileshare/2021CSP-J1试题(C++)%20.pdf) |
 | 6 | [CSP2021S.pdf](./fileshare/2021CSP-S1试题(C++)%20.pdf) |
 | 7 | [CSP2022J.pdf](./fileshare/2022CSP-J1试题.pdf) |
 | 8 | [CSP2022S.pdf](./fileshare/2022CSP-S1试题.pdf) |
