@@ -59,7 +59,7 @@ nav_order: 1
 
 |  | 联系方式 |
 | :---: | :--- |
-| 📧 **邮箱** | [admin@null47.tk](mailto:admin@yzoi.dpdns.org) |
+| 📧 **邮箱** | [admin@yzoi.dpdns.org](mailto:admin@yzoi.dpdns.org) |
 | 📱 **电话** | [17326785620](tel:+8617326785620) |
 | 📍 **地址** | 浙江省温州市乐清市城东街道宁康东路518号 东北1门进 艺术楼二楼 |
 
