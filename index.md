@@ -12,6 +12,8 @@ nav_order: 1
 
 [![主教练-俞挺挺](https://img.shields.io/badge/主教练-俞挺挺-brightgreen?style=for-the-badge)](https://au.cnki.net/author/personalInfo/000076174595?platform=kns-author)
 
+[![副教练-D老师](https://img.shields.io/badge/副教练-D老师-brightgreen?style=for-the-badge)](https://www.deepseek.com/)
+
 [![洛谷-乐清中学信奥天团](https://img.shields.io/badge/洛谷-乐清中学信奥天团-brightgreen?style=for-the-badge)](https://www.luogu.com.cn/team/108362)
 [![Vjudge-浙江省乐清中学](https://img.shields.io/badge/Vjudge-浙江省乐清中学-brightgreen?style=for-the-badge)](https://vjudge.net/group/yzoi)
 [![OIerDB-浙江省乐清中学](https://img.shields.io/badge/OIerDB-浙江省乐清中学-brightgreen?style=for-the-badge)](https://www.xn--vuqs4zq3d.com/school/13190)
