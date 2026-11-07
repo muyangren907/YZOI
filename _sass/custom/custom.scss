@@ -41,66 +41,43 @@
 //     gap: 8px;
 //   }
 // }
-/* ========== 表格美化 ========== */
+/* ========== 表格：只保留斑马纹 + 行 hover ========== */
 .main-content table {
-  /* --- 移动端：让宽表格可以横向滚动，而不是撑破页面 --- */
-  display: block;
-  width: 100%;
+  display: table;              // 恢复原生表格显示（主题默认是 block，会撑出空框）
+  width: auto;                 // 宽度贴合内容，不强行撑满
   max-width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-
-  /* --- 桌面端外观 --- */
-  border-collapse: separate;
-  border-spacing: 0;
+  border-collapse: collapse;
+  border: none;                // 去掉外框
   margin: 1.5rem 0;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  border: 1px solid rgba(128, 128, 128, 0.25);  // 用中性灰，兼容浅色/深色主题
-  border-radius: 8px;
+}
 
-  /* 表头 */
-  thead th {
-    background: rgba(128, 128, 128, 0.12);
-    font-weight: 600;
-    text-align: left;
-    padding: 10px 14px;
-    border-bottom: 2px solid rgba(128, 128, 128, 0.3);
-    white-space: nowrap;           // 表头尽量不换行
-  }
+.main-content table th,
+.main-content table td {
+  border: none;                // 去掉所有单元格细线
+  padding: 8px 14px;
+  text-align: left;
+}
 
-  /* 普通单元格 */
-  td {
-    padding: 9px 14px;
-    border-bottom: 1px solid rgba(128, 128, 128, 0.15);
-    vertical-align: top;
-  }
+.main-content table thead th {
+  background: rgba(128, 128, 128, 0.1);
+  font-weight: 600;
+}
 
-  /* 斑马纹 */
-  tbody tr:nth-child(even) {
-    background: rgba(128, 128, 128, 0.05);
-  }
+/* 斑马纹 */
+.main-content table tbody tr:nth-child(even) {
+  background: rgba(128, 128, 128, 0.04);
+}
 
-  /* 行悬停反馈 */
-  tbody tr:hover {
-    background: rgba(128, 128, 128, 0.1);
-    transition: background 0.15s ease;
-  }
+/* 悬停整行加深 */
+.main-content table tbody tr:hover {
+  background: rgba(128, 128, 128, 0.12);
+}
 
-  /* 最后一行去掉底边线，避免和容器圆角边框重叠 */
-  tbody tr:last-child td {
-    border-bottom: none;
-  }
-
-  /* 圆角：只给四个角的单元格加半径，让 table 外框显圆润 */
-  thead th:first-child { border-top-left-radius: 8px; }
-  thead th:last-child  { border-top-right-radius: 8px; }
-  tbody tr:last-child td:first-child { border-bottom-left-radius: 8px; }
-  tbody tr:last-child td:last-child  { border-bottom-right-radius: 8px; }
-
-  /* 表格内的代码/等宽内容不撑破 */
-  code {
-    white-space: nowrap;
-    word-break: keep-all;
+/* 仅手机端：宽表格允许横向滚动，避免溢出 */
+@media (max-width: 768px) {
+  .main-content table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
 }
