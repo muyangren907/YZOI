@@ -6,3 +6,6 @@ title: 乐中信奥
 footer_content: ""
 plugins:
   - jekyll-remote-theme
+
+# _config.yml
+color_scheme: wider
