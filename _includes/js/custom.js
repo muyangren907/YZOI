@@ -1,55 +1,52 @@
-/* ===================================================================
-   乐中信奥 · 历年获奖人数图表
-   路径：_includes/js/custom.js
-   =================================================================== */
+/* 乐中信奥 · 历年获奖人数图表 —— 纯 JS，由 index.md 的 <script> 标签包裹 */
 
-   (function () {
+(function () {
     'use strict';
   
     // ===== 1. 数据：年份 2021–2026，按实际填数字 =====
     var CONTESTS = {
       'CSP-J': {
         years:  ['2021', '2022', '2023', '2024', '2025', '2026'],
-        first:  [ 0,      0,      0,      0,      5,      17 ],
-        second: [ 0,      0,      0,      0,      3,      2  ],
-        third:  [ 0,      0,      0,      0,      2,      0  ]
+        first:  [0, 0, 0, 0, 5, 17],
+        second: [0, 0, 0, 0, 3, 2],
+        third:  [0, 0, 0, 0, 2, 0]
       },
       'CSP-S': {
         years:  ['2021', '2022', '2023', '2024', '2025', '2026'],
-        first:  [ 0,      0,      0,      0,      1,      10 ],
-        second: [ 0,      0,      0,      0,      6,      9  ],
-        third:  [ 0,      0,      0,      0,      1,      0  ]
+        first:  [0, 0, 0, 0, 1, 10],
+        second: [0, 0, 0, 0, 6, 9],
+        third:  [0, 0, 0, 0, 1, 0]
       },
       'NOIP': {
         years:  ['2021', '2022', '2023', '2024', '2025'],
-        first:  [ 0,      0,      0,      0,      1  ],
-        second: [ 0,      0,      0,      0,      4  ],
-        third:  [ 0,      0,      0,      0,      4  ]
+        first:  [0, 0, 0, 0, 1],
+        second: [0, 0, 0, 0, 4],
+        third:  [0, 0, 0, 0, 4]
       },
       'NOI': {
         years:  ['2021', '2022', '2023', '2024', '2025', '2026'],
-        first:  [ 0,      0,      0,      0,      0,      0  ],
-        second: [ 0,      0,      0,      0,      0,      0  ],
-        third:  [ 0,      0,      0,      0,      0,      0  ]
+        first:  [0, 0, 0, 0, 0, 0],
+        second: [0, 0, 0, 0, 0, 0],
+        third:  [0, 0, 0, 0, 0, 0]
       },
       'WC': {
         years:  ['2021', '2022', '2023', '2024', '2025', '2026'],
-        first:  [ 0,      0,      0,      0,      0,      0  ],
-        second: [ 0,      0,      0,      0,      0,      0  ],
-        third:  [ 0,      0,      0,      0,      0,      0  ]
+        first:  [0, 0, 0, 0, 0, 0],
+        second: [0, 0, 0, 0, 0, 0],
+        third:  [0, 0, 0, 0, 0, 0]
       },
       'APIO': {
         years:  ['2021', '2022', '2023', '2024', '2025', '2026'],
-        first:  [ 0,      0,      0,      0,      0,      0  ],
-        second: [ 0,      0,      0,      0,      0,      0  ],
-        third:  [ 0,      0,      0,      0,      0,      0  ]
+        first:  [0, 0, 0, 0, 0, 0],
+        second: [0, 0, 0, 0, 0, 0],
+        third:  [0, 0, 0, 0, 0, 0]
       }
     };
   
     // ===== 2. 配色：金 / 银 / 铜 =====
-    var GOLD   = { line: '#E8A800', glow: 'rgba(232,168,0,0.35)'  };
+    var GOLD   = { line: '#E8A800', glow: 'rgba(232,168,0,0.35)' };
     var SILVER = { line: '#8C97A8', glow: 'rgba(140,151,168,0.35)' };
-    var BRONZE = { line: '#C4703A', glow: 'rgba(196,112,58,0.35)'  };
+    var BRONZE = { line: '#C4703A', glow: 'rgba(196,112,58,0.35)' };
   
     var chart = null;
   
@@ -136,16 +133,15 @@
           splitLine: { lineStyle: { color: 'rgba(128,128,128,0.12)' } }
         },
         series: [
-          makeSeries('一等奖', d.first,  GOLD),
+          makeSeries('一等奖', d.first, GOLD),
           makeSeries('二等奖', d.second, SILVER),
-          makeSeries('三等奖', d.third,  BRONZE)
+          makeSeries('三等奖', d.third, BRONZE)
         ]
       }, { replaceMerge: ['series'] });
     }
   
     // ===== 6. 初始化入口 =====
     function init() {
-      // 先绑定 tab：不依赖 echarts，保证按钮永远有响应
       document.querySelectorAll('.contest-tab').forEach(function (btn) {
         btn.addEventListener('click', function () {
           document.querySelectorAll('.contest-tab').forEach(function (b) {
@@ -156,7 +152,6 @@
         });
       });
   
-      // 再加载 ECharts 并初始化图表
       loadECharts().then(function () {
         chart = echarts.init(document.getElementById('award-chart'));
         renderChart('CSP-J');
@@ -168,7 +163,7 @@
         var box = document.getElementById('chart-error');
         if (box) {
           box.style.display = 'block';
-          box.textContent = '⚠️ 图表加载失败：' + err.message;
+          box.textContent = '图表加载失败：' + err.message;
         }
       });
     }
