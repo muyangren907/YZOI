@@ -1,43 +1,106 @@
-/* 调整正文内容的最大宽度，数字可以根据需要自行修改（如 100% 为全屏，或者 1200px） */
-.main-content-wrap {
-    max-width: 100% !important; 
-}
+// /* 调整正文内容的最大宽度，数字可以根据需要自行修改（如 100% 为全屏，或者 1200px） */
+// .main-content-wrap {
+//     max-width: 100% !important; 
+// }
 
-.photo-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 12px;
-  margin: 2rem 0;
+// .photo-grid {
+//   display: grid;
+//   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+//   gap: 12px;
+//   margin: 2rem 0;
 
-  a {
-    display: block;
-    position: relative;
-    aspect-ratio: 4 / 3;          /* 统一比例，网格才整齐 */
-    overflow: hidden;
-    border-radius: 8px;
-    background: #f0f0f0;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+//   a {
+//     display: block;
+//     position: relative;
+//     aspect-ratio: 4 / 3;          /* 统一比例，网格才整齐 */
+//     overflow: hidden;
+//     border-radius: 8px;
+//     background: #f0f0f0;
+//     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+//     transition: transform 0.2s ease, box-shadow 0.2s ease;
 
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;           /* 关键：裁剪成统一尺寸，网格才好看 */
-      transition: transform 0.3s ease;
-      display: block;
-    }
+//     img {
+//       width: 100%;
+//       height: 100%;
+//       object-fit: cover;           /* 关键：裁剪成统一尺寸，网格才好看 */
+//       transition: transform 0.3s ease;
+//       display: block;
+//     }
 
-    &:hover {
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-      img { transform: scale(1.06); }
-    }
+//     &:hover {
+//       box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+//       img { transform: scale(1.06); }
+//     }
+//   }
+// }
+
+// /* 手机端两列 */
+// @media (max-width: 600px) {
+//   .photo-grid {
+//     grid-template-columns: repeat(2, 1fr);
+//     gap: 8px;
+//   }
+// }
+/* ========== 表格美化 ========== */
+.main-content table {
+  /* --- 移动端：让宽表格可以横向滚动，而不是撑破页面 --- */
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+
+  /* --- 桌面端外观 --- */
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  border: 1px solid rgba(128, 128, 128, 0.25);  // 用中性灰，兼容浅色/深色主题
+  border-radius: 8px;
+
+  /* 表头 */
+  thead th {
+    background: rgba(128, 128, 128, 0.12);
+    font-weight: 600;
+    text-align: left;
+    padding: 10px 14px;
+    border-bottom: 2px solid rgba(128, 128, 128, 0.3);
+    white-space: nowrap;           // 表头尽量不换行
   }
-}
 
-/* 手机端两列 */
-@media (max-width: 600px) {
-  .photo-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
+  /* 普通单元格 */
+  td {
+    padding: 9px 14px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.15);
+    vertical-align: top;
+  }
+
+  /* 斑马纹 */
+  tbody tr:nth-child(even) {
+    background: rgba(128, 128, 128, 0.05);
+  }
+
+  /* 行悬停反馈 */
+  tbody tr:hover {
+    background: rgba(128, 128, 128, 0.1);
+    transition: background 0.15s ease;
+  }
+
+  /* 最后一行去掉底边线，避免和容器圆角边框重叠 */
+  tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  /* 圆角：只给四个角的单元格加半径，让 table 外框显圆润 */
+  thead th:first-child { border-top-left-radius: 8px; }
+  thead th:last-child  { border-top-right-radius: 8px; }
+  tbody tr:last-child td:first-child { border-bottom-left-radius: 8px; }
+  tbody tr:last-child td:last-child  { border-bottom-right-radius: 8px; }
+
+  /* 表格内的代码/等宽内容不撑破 */
+  code {
+    white-space: nowrap;
+    word-break: keep-all;
   }
 }
