@@ -23,6 +23,12 @@
         second: [0, 0, 0, 0, 4],
         third:  [0, 0, 0, 0, 4]
       },
+      'NGOI': {
+        years:  ['2021', '2022', '2023', '2024', '2025'],
+        first:  [0, 0, 0, 0, 0, ],
+        second: [0, 0, 0, 0, 0, ],
+        third:  [0, 0, 0, 0, 2, ]
+      },
       'NOI': {
         years:  ['2021', '2022', '2023', '2024', '2025', '2026'],
         first:  [0, 0, 0, 0, 0, 0],
@@ -36,6 +42,12 @@
         third:  [0, 0, 0, 0, 0, 0]
       },
       'APIO': {
+        years:  ['2021', '2022', '2023', '2024', '2025', '2026'],
+        first:  [0, 0, 0, 0, 0, 0],
+        second: [0, 0, 0, 0, 0, 0],
+        third:  [0, 0, 0, 0, 0, 0]
+      },
+      'IOI': {
         years:  ['2021', '2022', '2023', '2024', '2025', '2026'],
         first:  [0, 0, 0, 0, 0, 0],
         second: [0, 0, 0, 0, 0, 0],
@@ -77,7 +89,7 @@
       });
     }
   
-    // ===== 4. 系列生成 =====
+    // ===== 4. 系列生成（smooth: false = 直线折线） =====
     function makeSeries(name, data, c) {
       return {
         name: name,
@@ -142,6 +154,7 @@
   
     // ===== 6. 初始化入口 =====
     function init() {
+      // 先绑定 tab：不依赖 echarts，保证按钮永远有响应
       document.querySelectorAll('.contest-tab').forEach(function (btn) {
         btn.addEventListener('click', function () {
           document.querySelectorAll('.contest-tab').forEach(function (b) {
@@ -152,6 +165,7 @@
         });
       });
   
+      // 再加载 ECharts 并初始化图表
       loadECharts().then(function () {
         chart = echarts.init(document.getElementById('award-chart'));
         renderChart('CSP-J');
