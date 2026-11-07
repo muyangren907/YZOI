@@ -82,7 +82,7 @@
       return {
         name: name,
         type: 'line',
-        smooth: true,
+        smooth: false,
         symbol: 'circle',
         symbolSize: 9,
         data: data,
