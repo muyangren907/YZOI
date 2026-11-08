@@ -3,135 +3,112 @@
    文件：_sass/custom/custom.scss
    ===================================================== */
 
-/* ---------- 1. 正文内容自适应 + 极淡背景（让玻璃有东西可透） ---------- */
+/* ---------- 1. 正文自适应 + 极淡背景（让玻璃有东西可模糊） ---------- */
 .main-content {
   max-width: none;
   width: 100%;
   background:
-    radial-gradient(ellipse 800px 600px at 10% 0%, rgba(0, 200, 120, 0.07) 0%, transparent 50%),
-    radial-gradient(ellipse 900px 700px at 90% 100%, rgba(70, 130, 220, 0.05) 0%, transparent 55%);
+    radial-gradient(ellipse 800px 600px at 10% 0%,  rgba(0, 200, 120, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse 900px 700px at 90% 100%, rgba(70, 130, 220, 0.06) 0%, transparent 55%);
 }
 
-/* ---------- 2. 表格：Aero 玻璃表头 + 扫光 + 斑马纹 ---------- */
+/* ---------- 2. 表格：Aero 玻璃 ---------- */
 .main-content table {
   width: 100%;
   max-width: 100%;
-  border-collapse: separate;       /* 关键：collapse 无法圆角 */
-  border-spacing: 0;               /* 关键：避免行间缝隙 */
-  border-radius: 6px;              /* 小圆角，收紧质感 */
-  overflow: hidden;                /* 让表头/扫光被裁到表格内 */
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 8px;
+  overflow: hidden;
   margin: 0;
   font-size: 0.95rem;
   line-height: 1.65;
-  border: 1px solid rgba(0, 120, 60, 0.12);
+  /* 玻璃外框：细白边 + 极淡绿描边 */
+  border: 1px solid rgba(255, 255, 255, 0.55);
   box-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.03),
-    0 8px 24px rgba(0, 100, 50, 0.07);   /* 表格整体浮起来 */
+    0 0 0 1px rgba(0, 140, 70, 0.08),          /* 内侧极淡绿描边 */
+    0 2px 4px rgba(0, 80, 40, 0.04),
+    0 12px 40px rgba(0, 80, 40, 0.10);          /* 柔和的大范围阴影 */
 }
-
-/* 四角保险：即使 overflow: hidden 不生效，也靠单元格圆角兜底 */
-.main-content table thead th:first-child { border-top-left-radius: 6px; }
-.main-content table thead th:last-child  { border-top-right-radius: 6px; }
-.main-content table tbody tr:last-child td:first-child { border-bottom-left-radius: 6px; }
-.main-content table tbody tr:last-child td:last-child  { border-bottom-right-radius: 6px; }
 
 /* 表头：AC 绿 Aero 玻璃 */
 .main-content table thead th {
   position: relative;
-  overflow: hidden;
   background:
-    /* ① 顶部纯白高光：模拟玻璃上沿反光 */
+    /* ① 顶部白色高光带：玻璃上沿的反光（Aero 标志） */
     linear-gradient(180deg,
-      rgba(255, 255, 255, 0.78) 0%,
-      rgba(255, 255, 255, 0.30) 6%,
-      rgba(255, 255, 255, 0.05) 40%,
-      rgba(255, 255, 255, 0) 100%),
-    /* ② 左上径向高光：光源 */
-    radial-gradient(ellipse at 15% -50%,
+      rgba(255, 255, 255, 0.85) 0%,
+      rgba(255, 255, 255, 0.35) 4%,
+      rgba(255, 255, 255, 0.08) 30%,
+      rgba(255, 255, 255, 0) 55%),
+    /* ② 左上柔和光晕 */
+    radial-gradient(ellipse at 15% -60%,
       rgba(255, 255, 255, 0.55) 0%,
-      rgba(255, 255, 255, 0) 60%),
-    /* ③ 主体：半透明 AC 绿，让背后光斑透出来 */
+      rgba(255, 255, 255, 0) 65%),
+    /* ③ 主体：低透明度 AC 绿，上深下浅，形成玻璃厚度感 */
     linear-gradient(180deg,
-      rgba(0, 190, 95, 0.62) 0%,
-      rgba(0, 155, 75, 0.52) 55%,
-      rgba(0, 130, 62, 0.60) 100%);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
+      rgba(0, 170, 85, 0.52) 0%,
+      rgba(0, 145, 72, 0.42) 55%,
+      rgba(0, 125, 62, 0.48) 100%);
+  backdrop-filter: blur(24px) saturate(190%);
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
   color: #fff;
   font-weight: 600;
   letter-spacing: 0.04em;
   text-align: left;
   padding: 12px 16px;
   border: none;
-  border-bottom: 1px solid rgba(0, 80, 40, 0.22);
+  /* 底部一条深绿暗边，分隔表头与表体 */
+  border-bottom: 1px solid rgba(0, 70, 35, 0.28);
   white-space: nowrap;
+  /* 多层文字阴影，让白字在透明绿上依然锐利 */
   text-shadow:
-    0 1px 2px rgba(0, 50, 25, 0.45),
-    0 0 10px rgba(0, 50, 25, 0.20);
+    0 1px 2px rgba(0, 50, 25, 0.55),
+    0 0 12px rgba(0, 50, 25, 0.25);
+  /* Aero 边缘光：顶部纯白亮边 + 内部柔光 */
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.85),    /* 顶部纯白亮边 */
-    inset 0 -1px 0 rgba(0, 60, 30, 0.18),       /* 底部暗边 */
-    inset 0 0 20px rgba(255, 255, 255, 0.10);   /* 内部柔光 */
+    inset 0 2px 0 rgba(255, 255, 255, 0.75),    /* 顶部 2px 白边 */
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),    /* 再叠 1px 更亮 */
+    inset 0 -1px 0 rgba(0, 60, 30, 0.22),       /* 底部暗边 */
+    inset 0 0 24px rgba(255, 255, 255, 0.12);   /* 内部柔光 */
 }
 
-/* 扫光：斜向高光带，周期性掠过 */
-.main-content table thead th::after {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -80%;
-  width: 50%;
-  height: 200%;
-  background: linear-gradient(105deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.00) 25%,
-    rgba(255, 255, 255, 0.35) 45%,
-    rgba(255, 255, 255, 0.70) 50%,
-    rgba(255, 255, 255, 0.35) 55%,
-    rgba(255, 255, 255, 0.00) 75%,
-    transparent 100%);
-  transform: skewX(-20deg);
-  animation: header-shine 8s ease-in-out infinite;
-  pointer-events: none;
-  will-change: left;
-}
+/* 表头圆角：首列左上、末列右上 */
+.main-content table thead th:first-child { border-top-left-radius: 8px; }
+.main-content table thead th:last-child  { border-top-right-radius: 8px; }
 
-@keyframes header-shine {
-  0%   { left: -80%; }
-  10%  { left: 130%; }
-  100% { left: 130%; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .main-content table thead th::after { animation: none; }
-}
-
-/* 单元格 + 行间细分割线 */
+/* 单元格 */
 .main-content table td {
   padding: 10px 16px;
   border: none;
-  border-bottom: 1px solid rgba(0, 120, 60, 0.10);
+  border-bottom: 1px solid rgba(0, 130, 65, 0.10);
   vertical-align: top;
-  background: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.6);          /* 表体淡白玻璃底 */
+  transition: background 0.18s ease;
 }
 
 /* 斑马纹 */
 .main-content table tbody tr:nth-child(even) td {
-  background: rgba(0, 190, 95, 0.04);
+  background: rgba(0, 175, 88, 0.05);
 }
 
-/* 悬停：整行加深 + 左侧 AC 绿强调条 */
+/* 悬停：整行淡绿 + 左侧 AC 绿强调条 */
 .main-content table tbody tr:hover td {
-  background: rgba(0, 190, 95, 0.10);
-  transition: background 0.18s ease;
+  background: rgba(0, 175, 88, 0.11);
 }
 .main-content table tbody tr:hover td:first-child {
   box-shadow: inset 3px 0 0 #00a651;
 }
 
-/* 最后一行去掉底边线 */
+/* 最后一行：去掉底边线 + 圆角 */
 .main-content table tbody tr:last-child td {
   border-bottom: none;
+}
+.main-content table tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 8px;
+}
+.main-content table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 8px;
 }
 
 /* ---------- 3. 表格上下贴边 ---------- */
