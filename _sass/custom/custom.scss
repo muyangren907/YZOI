@@ -3,111 +3,127 @@
    文件：_sass/custom/custom.scss
    ===================================================== */
 
-/* ---------- 1. 正文内容宽度自适应 ---------- */
+/* ---------- 1. 正文内容自适应 + 极淡背景（让玻璃有东西可透） ---------- */
 .main-content {
   max-width: none;
   width: 100%;
+  background:
+    radial-gradient(ellipse 800px 600px at 10% 0%, rgba(0, 200, 120, 0.07) 0%, transparent 50%),
+    radial-gradient(ellipse 900px 700px at 90% 100%, rgba(70, 130, 220, 0.05) 0%, transparent 55%);
 }
 
-/* ---------- 2. 表格：AC 绿玻璃表头 + 扫光 + 斑马纹 + hover ---------- */
+/* ---------- 2. 表格：Aero 玻璃表头 + 扫光 + 斑马纹 ---------- */
 .main-content table {
   width: 100%;
   max-width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;       /* 关键：collapse 无法圆角 */
+  border-spacing: 0;               /* 关键：避免行间缝隙 */
+  border-radius: 6px;              /* 小圆角，收紧质感 */
+  overflow: hidden;                /* 让表头/扫光被裁到表格内 */
   margin: 0;
   font-size: 0.95rem;
   line-height: 1.65;
-  border: none;
+  border: 1px solid rgba(0, 120, 60, 0.12);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.03),
+    0 8px 24px rgba(0, 100, 50, 0.07);   /* 表格整体浮起来 */
 }
 
-/* 表头：AC 绿 + 真正的玻璃质感 + 周期性扫光 */
+/* 四角保险：即使 overflow: hidden 不生效，也靠单元格圆角兜底 */
+.main-content table thead th:first-child { border-top-left-radius: 6px; }
+.main-content table thead th:last-child  { border-top-right-radius: 6px; }
+.main-content table tbody tr:last-child td:first-child { border-bottom-left-radius: 6px; }
+.main-content table tbody tr:last-child td:last-child  { border-bottom-right-radius: 6px; }
+
+/* 表头：AC 绿 Aero 玻璃 */
 .main-content table thead th {
   position: relative;
-  overflow: hidden;            /* 让扫光在表头内被裁剪，不溢出 */
+  overflow: hidden;
   background:
-    /* ① 顶部白色反光带 */
+    /* ① 顶部纯白高光：模拟玻璃上沿反光 */
     linear-gradient(180deg,
-      rgba(255, 255, 255, 0.32) 0%,
-      rgba(255, 255, 255, 0.06) 30%,
+      rgba(255, 255, 255, 0.78) 0%,
+      rgba(255, 255, 255, 0.30) 6%,
+      rgba(255, 255, 255, 0.05) 40%,
+      rgba(255, 255, 255, 0) 100%),
+    /* ② 左上径向高光：光源 */
+    radial-gradient(ellipse at 15% -50%,
+      rgba(255, 255, 255, 0.55) 0%,
       rgba(255, 255, 255, 0) 60%),
-    /* ② 左上角径向高光 */
-    radial-gradient(ellipse at 20% -30%,
-      rgba(255, 255, 255, 0.48) 0%,
-      rgba(255, 255, 255, 0) 55%),
-    /* ③ 主体绿色，透明度降低让底色透出来 */
-    linear-gradient(135deg,
-      rgba(0, 166, 81, 0.66) 0%,
-      rgba(0, 140, 70, 0.58) 50%,
-      rgba(0, 118, 58, 0.72) 100%);
-  backdrop-filter: blur(20px) saturate(200%);
-  -webkit-backdrop-filter: blur(20px) saturate(200%);
+    /* ③ 主体：半透明 AC 绿，让背后光斑透出来 */
+    linear-gradient(180deg,
+      rgba(0, 190, 95, 0.62) 0%,
+      rgba(0, 155, 75, 0.52) 55%,
+      rgba(0, 130, 62, 0.60) 100%);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
   color: #fff;
   font-weight: 600;
   letter-spacing: 0.04em;
   text-align: left;
   padding: 12px 16px;
   border: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  border-bottom: 1px solid rgba(0, 80, 40, 0.22);
   white-space: nowrap;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.55),    /* 顶部强高光 */
-    inset 0 -1px 0 rgba(0, 0, 0, 0.18),         /* 底部暗边 */
-    inset 0 0 24px rgba(255, 255, 255, 0.06),   /* 内部柔光 */
-    0 4px 14px rgba(0, 166, 81, 0.22);          /* 外投影 */
   text-shadow:
-    0 1px 3px rgba(0, 0, 0, 0.35),
-    0 0 12px rgba(0, 0, 0, 0.15);
+    0 1px 2px rgba(0, 50, 25, 0.45),
+    0 0 10px rgba(0, 50, 25, 0.20);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.85),    /* 顶部纯白亮边 */
+    inset 0 -1px 0 rgba(0, 60, 30, 0.18),       /* 底部暗边 */
+    inset 0 0 20px rgba(255, 255, 255, 0.10);   /* 内部柔光 */
 }
 
-/* 扫光：斜向高光带周期性从左扫到右 */
+/* 扫光：斜向高光带，周期性掠过 */
 .main-content table thead th::after {
   content: "";
   position: absolute;
   top: -50%;
-  left: -60%;
-  width: 40%;
+  left: -80%;
+  width: 50%;
   height: 200%;
   background: linear-gradient(105deg,
     transparent 0%,
-    rgba(255, 255, 255, 0.05) 30%,
-    rgba(255, 255, 255, 0.55) 50%,
-    rgba(255, 255, 255, 0.05) 70%,
+    rgba(255, 255, 255, 0.00) 25%,
+    rgba(255, 255, 255, 0.35) 45%,
+    rgba(255, 255, 255, 0.70) 50%,
+    rgba(255, 255, 255, 0.35) 55%,
+    rgba(255, 255, 255, 0.00) 75%,
     transparent 100%);
-  transform: skewX(-20deg);    /* 倾斜，更像玻璃反光 */
-  animation: header-shine 7s ease-in-out infinite;
+  transform: skewX(-20deg);
+  animation: header-shine 8s ease-in-out infinite;
   pointer-events: none;
+  will-change: left;
 }
 
 @keyframes header-shine {
-  0%   { left: -60%; }         /* 从表头左外侧开始 */
-  10%  { left: 120%; }         /* 0.7s 扫到右外侧 */
-  100% { left: 120%; }         /* 其余 6.3s 停在不可见区等待 */
+  0%   { left: -80%; }
+  10%  { left: 130%; }
+  100% { left: 130%; }
 }
 
-/* 对动画敏感的用户自动关闭扫光 */
 @media (prefers-reduced-motion: reduce) {
-  .main-content table thead th::after {
-    animation: none;
-  }
+  .main-content table thead th::after { animation: none; }
 }
 
 /* 单元格 + 行间细分割线 */
 .main-content table td {
   padding: 10px 16px;
   border: none;
-  border-bottom: 1px solid rgba(128, 128, 128, 0.18);
+  border-bottom: 1px solid rgba(0, 120, 60, 0.10);
   vertical-align: top;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.55);
 }
 
 /* 斑马纹 */
 .main-content table tbody tr:nth-child(even) td {
-  background: rgba(59, 130, 246, 0.06);
+  background: rgba(0, 190, 95, 0.04);
 }
 
 /* 悬停：整行加深 + 左侧 AC 绿强调条 */
 .main-content table tbody tr:hover td {
-  background: rgba(0, 166, 81, 0.10);
+  background: rgba(0, 190, 95, 0.10);
+  transition: background 0.18s ease;
 }
 .main-content table tbody tr:hover td:first-child {
   box-shadow: inset 3px 0 0 #00a651;
@@ -118,19 +134,17 @@
   border-bottom: none;
 }
 
-/* ---------- 3. 表格上下贴边：压缩紧邻标题的留白 ---------- */
+/* ---------- 3. 表格上下贴边 ---------- */
 .main-content h1 + table,
 .main-content h2 + table,
 .main-content h3 + table,
-.main-content h4 + table {
-  margin-top: 0.4rem;
-}
+.main-content h4 + table { margin-top: 0.4rem; }
 .main-content h1:has(+ table) { margin-bottom: 0.4rem; }
 .main-content h2:has(+ table) { margin-bottom: 0.4rem; }
 .main-content h3:has(+ table) { margin-bottom: 0.4rem; }
 .main-content h4:has(+ table) { margin-bottom: 0.4rem; }
 
-/* ---------- 4. 手机端：宽表格横向滚动 ---------- */
+/* ---------- 4. 手机端横滚 ---------- */
 @media (max-width: 768px) {
   .main-content table {
     display: block;
@@ -140,39 +154,15 @@
 }
 
 /* ---------- 5. 全局金牌光标 ---------- */
-/* 32x32 SVG 金牌：红色丝带 + 金色圆牌 + 数字 1
-   热点设在 (16,16)，即金牌中心 */
 $gold-cursor: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='32'%20height='32'%20viewBox='0%200%2032%2032'%3E%3Cdefs%3E%3CradialGradient%20id='g'%20cx='35%25'%20cy='30%25'%20r='75%25'%3E%3Cstop%20offset='0%25'%20stop-color='%23FFF3B0'/%3E%3Cstop%20offset='45%25'%20stop-color='%23FFD24A'/%3E%3Cstop%20offset='100%25'%20stop-color='%23B8860B'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cpath%20d='M11%202%20L16%2010%20L21%202%20L19%202%20L16%207%20L13%202%20Z'%20fill='%23E63946'/%3E%3Ccircle%20cx='16'%20cy='19'%20r='10'%20fill='url(%23g)'%20stroke='%238B6508'%20stroke-width='1'/%3E%3Ccircle%20cx='16'%20cy='19'%20r='7'%20fill='none'%20stroke='%23FFF3B0'%20stroke-width='1'%20opacity='0.8'/%3E%3Ctext%20x='16'%20y='23'%20font-size='9'%20font-family='Arial'%20font-weight='bold'%20text-anchor='middle'%20fill='%238B6508'%3E1%3C/text%3E%3C/svg%3E") 16 16, auto;
 
-html,
-body {
-  cursor: $gold-cursor;
-}
+html, body { cursor: $gold-cursor; }
 
-/* 链接、按钮、tab 也用金牌，保留 pointer 作为兜底 */
-a,
-button,
-[role="button"],
-summary,
-label[for],
-.contest-tab,
-input[type="submit"],
-input[type="button"] {
+a, button, [role="button"], summary, label[for], .contest-tab,
+input[type="submit"], input[type="button"] {
   cursor: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='32'%20height='32'%20viewBox='0%200%2032%2032'%3E%3Cdefs%3E%3CradialGradient%20id='g'%20cx='35%25'%20cy='30%25'%20r='75%25'%3E%3Cstop%20offset='0%25'%20stop-color='%23FFF3B0'/%3E%3Cstop%20offset='45%25'%20stop-color='%23FFD24A'/%3E%3Cstop%20offset='100%25'%20stop-color='%23B8860B'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cpath%20d='M11%202%20L16%2010%20L21%202%20L19%202%20L16%207%20L13%202%20Z'%20fill='%23E63946'/%3E%3Ccircle%20cx='16'%20cy='19'%20r='10'%20fill='url(%23g)'%20stroke='%238B6508'%20stroke-width='1'/%3E%3Ccircle%20cx='16'%20cy='19'%20r='7'%20fill='none'%20stroke='%23FFF3B0'%20stroke-width='1'%20opacity='0.8'/%3E%3Ctext%20x='16'%20y='23'%20font-size='9'%20font-family='Arial'%20font-weight='bold'%20text-anchor='middle'%20fill='%238B6508'%3E1%3C/text%3E%3C/svg%3E") 16 16, pointer;
 }
 
-/* 文本输入区域保留默认光标，方便编辑 */
-input[type="text"],
-input[type="search"],
-input[type="email"],
-input[type="password"],
-textarea,
-[contenteditable="true"] {
-  cursor: text;
-}
-
-/* 禁用状态的元素 */
-[disabled],
-.disabled {
-  cursor: not-allowed;
-}
+input[type="text"], input[type="search"], input[type="email"],
+input[type="password"], textarea, [contenteditable="true"] { cursor: text; }
+[disabled], .disabled { cursor: not-allowed; }
