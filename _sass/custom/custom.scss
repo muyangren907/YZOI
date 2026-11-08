@@ -3,110 +3,108 @@
    文件：_sass/custom/custom.scss
    ===================================================== */
 
-/* ---------- 1. 正文自适应 + 背景光斑（玻璃背后要有东西） ---------- */
+/* ---------- 1. 正文自适应 + 极淡背景（macOS 风格需要一点细节） ---------- */
 .main-content {
   max-width: none;
   width: 100%;
   background:
-    radial-gradient(ellipse 800px 600px at 10% 0%,  rgba(0, 200, 120, 0.10) 0%, transparent 50%),
-    radial-gradient(ellipse 900px 700px at 90% 100%, rgba(70, 130, 220, 0.08) 0%, transparent 55%);
+    radial-gradient(ellipse 900px 600px at 12% 0%,  rgba(0, 166, 81, 0.06) 0%, transparent 55%),
+    radial-gradient(ellipse 800px 500px at 88% 100%, rgba(0, 120, 255, 0.04) 0%, transparent 55%);
 }
 
-/* ---------- 2. 表格：高透明 Aero 玻璃 ---------- */
+/* ---------- 2. 表格：macOS 窗口玻璃 ---------- */
 .main-content table {
   width: 100%;
   max-width: 100%;
   border-collapse: separate;
   border-spacing: 0;
-  border-radius: 8px;
+  border-radius: 10px;
   overflow: hidden;
   margin: 0;
-  font-size: 0.95rem;
-  line-height: 1.65;
-  border: 1px solid rgba(255, 255, 255, 0.65);
+  font-size: 0.94rem;
+  line-height: 1.6;
+  border: 1px solid rgba(0, 0, 0, 0.06);
   box-shadow:
-    0 0 0 1px rgba(0, 140, 70, 0.06),
-    0 2px 4px rgba(0, 80, 40, 0.04),
-    0 12px 40px rgba(0, 80, 40, 0.10);
+    0 0 0 0.5px rgba(0, 0, 0, 0.04),
+    0 1px 3px rgba(0, 0, 0, 0.05),
+    0 12px 32px rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
 }
 
-/* 表头：极淡 AC 绿 + 白雾 Aero 玻璃 */
+/* 表头：macOS 灰白玻璃 + 极细绿底边 */
 .main-content table thead th {
   position: relative;
   background:
-    /* ① 顶部白色高光带（Aero 标志性上沿反光） */
+    /* 顶部白色薄雾（macOS 玻璃上沿） */
     linear-gradient(180deg,
-      rgba(255, 255, 255, 0.92) 0%,
-      rgba(255, 255, 255, 0.42) 5%,
-      rgba(255, 255, 255, 0.10) 32%,
-      rgba(255, 255, 255, 0) 60%),
-    /* ② 左上柔和光晕 */
-    radial-gradient(ellipse at 15% -60%,
-      rgba(255, 255, 255, 0.65) 0%,
-      rgba(255, 255, 255, 0) 65%),
-    /* ③ 白色雾面：Aero 玻璃的"白雾"层，提升通透感 */
+      rgba(255, 255, 255, 0.85) 0%,
+      rgba(255, 255, 255, 0.45) 40%,
+      rgba(255, 255, 255, 0.25) 100%),
+    /* 极淡绿调，几乎看不出，只给一点品牌暗示 */
     linear-gradient(180deg,
-      rgba(255, 255, 255, 0.18) 0%,
-      rgba(255, 255, 255, 0.08) 50%,
-      rgba(255, 255, 255, 0.14) 100%),
-    /* ④ 主体：极低透明度 AC 绿 */
-    linear-gradient(180deg,
-      rgba(0, 175, 88, 0.32) 0%,
-      rgba(0, 150, 75, 0.22) 55%,
-      rgba(0, 130, 65, 0.28) 100%);
+      rgba(0, 166, 81, 0.035) 0%,
+      rgba(0, 166, 81, 0.02) 100%);
   backdrop-filter: blur(32px) saturate(200%);
   -webkit-backdrop-filter: blur(32px) saturate(200%);
-  color: #fff;
+  color: #1d1d1f;                      /* macOS 主文字色 */
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.01em;
   text-align: left;
-  padding: 12px 16px;
+  padding: 11px 16px;
   border: none;
-  border-bottom: 1px solid rgba(0, 80, 40, 0.18);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   white-space: nowrap;
-  /* 强多层文字阴影：极淡绿底上白字依然锐利 */
-  text-shadow:
-    0 1px 2px rgba(0, 40, 20, 0.85),
-    0 0 4px  rgba(0, 40, 20, 0.60),
-    0 0 14px rgba(0, 40, 20, 0.40);
-  /* Aero 边缘光：顶部纯白亮边 + 底部暗边 + 内部柔光 */
   box-shadow:
-    inset 0 2px 0 rgba(255, 255, 255, 0.85),
-    inset 0 1px 0 rgba(255, 255, 255, 1),
-    inset 0 -1px 0 rgba(0, 60, 30, 0.20),
-    inset 0 0 28px rgba(255, 255, 255, 0.16);
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),     /* 顶部内白高光 */
+    inset 0 -0.5px 0 rgba(0, 0, 0, 0.03);       /* 底部内暗边 */
 }
 
-.main-content table thead th:first-child { border-top-left-radius: 8px; }
-.main-content table thead th:last-child  { border-top-right-radius: 8px; }
+/* 表头底边的 AC 绿细线：品牌点缀，极细、半透明、不喧宾夺主 */
+.main-content table thead::after {
+  content: "";
+  display: block;
+  height: 2px;
+  background: linear-gradient(90deg,
+    rgba(0, 166, 81, 0) 0%,
+    rgba(0, 166, 81, 0.45) 20%,
+    rgba(0, 166, 81, 0.55) 50%,
+    rgba(0, 166, 81, 0.45) 80%,
+    rgba(0, 166, 81, 0) 100%);
+}
+
+.main-content table thead th:first-child { border-top-left-radius: 10px; }
+.main-content table thead th:last-child  { border-top-right-radius: 10px; }
 
 /* 单元格 */
 .main-content table td {
   padding: 10px 16px;
   border: none;
-  border-bottom: 1px solid rgba(0, 130, 65, 0.10);
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.06);
   vertical-align: top;
-  background: rgba(255, 255, 255, 0.55);
-  transition: background 0.18s ease;
+  background: rgba(255, 255, 255, 0.45);
+  color: #1d1d1f;
+  transition: background 0.15s ease;
 }
 
-/* 斑马纹 */
+/* 斑马纹：极淡灰，macOS 列表风格 */
 .main-content table tbody tr:nth-child(even) td {
-  background: rgba(0, 175, 88, 0.04);
+  background: rgba(0, 0, 0, 0.022);
 }
 
-/* 悬停 */
+/* 悬停：AC 绿淡淡铺一层 + 左侧 2px 绿条 */
 .main-content table tbody tr:hover td {
-  background: rgba(0, 175, 88, 0.10);
+  background: rgba(0, 166, 81, 0.06);
 }
 .main-content table tbody tr:hover td:first-child {
-  box-shadow: inset 3px 0 0 #00a651;
+  box-shadow: inset 2px 0 0 #00a651;
 }
 
 /* 最后一行圆角 */
 .main-content table tbody tr:last-child td { border-bottom: none; }
-.main-content table tbody tr:last-child td:first-child { border-bottom-left-radius: 8px; }
-.main-content table tbody tr:last-child td:last-child  { border-bottom-right-radius: 8px; }
+.main-content table tbody tr:last-child td:first-child { border-bottom-left-radius: 10px; }
+.main-content table tbody tr:last-child td:last-child  { border-bottom-right-radius: 10px; }
 
 /* ---------- 3. 表格上下贴边 ---------- */
 .main-content h1 + table,
@@ -127,7 +125,45 @@
   }
 }
 
-/* ---------- 5. 全局金牌光标 ---------- */
+/* ---------- 5. 深色主题下的 macOS 玻璃（Just the Docs 有 dark 模式时自动适配） ---------- */
+@media (prefers-color-scheme: dark) {
+  .main-content table {
+    background: rgba(28, 28, 30, 0.55);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow:
+      0 0 0 0.5px rgba(255, 255, 255, 0.04),
+      0 1px 3px rgba(0, 0, 0, 0.3),
+      0 12px 32px rgba(0, 0, 0, 0.4);
+  }
+  .main-content table thead th {
+    background:
+      linear-gradient(180deg,
+        rgba(255, 255, 255, 0.12) 0%,
+        rgba(255, 255, 255, 0.05) 40%,
+        rgba(255, 255, 255, 0.02) 100%),
+      linear-gradient(180deg,
+        rgba(0, 166, 81, 0.08) 0%,
+        rgba(0, 166, 81, 0.04) 100%);
+    color: #f5f5f7;
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.12),
+      inset 0 -0.5px 0 rgba(0, 0, 0, 0.3);
+  }
+  .main-content table td {
+    background: rgba(28, 28, 30, 0.45);
+    color: #f5f5f7;
+    border-bottom-color: rgba(255, 255, 255, 0.06);
+  }
+  .main-content table tbody tr:nth-child(even) td {
+    background: rgba(255, 255, 255, 0.03);
+  }
+  .main-content table tbody tr:hover td {
+    background: rgba(0, 166, 81, 0.14);
+  }
+}
+
+/* ---------- 6. 全局金牌光标 ---------- */
 $gold-cursor: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='32'%20height='32'%20viewBox='0%200%2032%2032'%3E%3Cdefs%3E%3CradialGradient%20id='g'%20cx='35%25'%20cy='30%25'%20r='75%25'%3E%3Cstop%20offset='0%25'%20stop-color='%23FFF3B0'/%3E%3Cstop%20offset='45%25'%20stop-color='%23FFD24A'/%3E%3Cstop%20offset='100%25'%20stop-color='%23B8860B'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cpath%20d='M11%202%20L16%2010%20L21%202%20L19%202%20L16%207%20L13%202%20Z'%20fill='%23E63946'/%3E%3Ccircle%20cx='16'%20cy='19'%20r='10'%20fill='url(%23g)'%20stroke='%238B6508'%20stroke-width='1'/%3E%3Ccircle%20cx='16'%20cy='19'%20r='7'%20fill='none'%20stroke='%23FFF3B0'%20stroke-width='1'%20opacity='0.8'/%3E%3Ctext%20x='16'%20y='23'%20font-size='9'%20font-family='Arial'%20font-weight='bold'%20text-anchor='middle'%20fill='%238B6508'%3E1%3C/text%3E%3C/svg%3E") 16 16, auto;
 
 html, body { cursor: $gold-cursor; }
