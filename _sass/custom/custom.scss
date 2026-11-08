@@ -3,108 +3,116 @@
    文件：_sass/custom/custom.scss
    ===================================================== */
 
-/* ---------- 1. 正文自适应 + 极淡背景（macOS 风格需要一点细节） ---------- */
+/* ---------- 1. 正文自适应 + 极淡"壁纸"（玻璃背后必须有东西） ---------- */
 .main-content {
   max-width: none;
   width: 100%;
   background:
-    radial-gradient(ellipse 900px 600px at 12% 0%,  rgba(0, 166, 81, 0.06) 0%, transparent 55%),
-    radial-gradient(ellipse 800px 500px at 88% 100%, rgba(0, 120, 255, 0.04) 0%, transparent 55%);
+    radial-gradient(ellipse 1000px 600px at 15% 0%,  rgba(0, 166, 81, 0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 900px 500px at 85% 100%, rgba(120, 160, 255, 0.06) 0%, transparent 60%),
+    linear-gradient(135deg, #fbfcfd 0%, #f5f7fa 100%);
 }
 
-/* ---------- 2. 表格：macOS 窗口玻璃 ---------- */
+/* ---------- 2. 表格：macOS 窗口 ---------- */
 .main-content table {
+  position: relative;
   width: 100%;
   max-width: 100%;
   border-collapse: separate;
   border-spacing: 0;
-  border-radius: 10px;
+  border-radius: 12px;
   overflow: hidden;
   margin: 0;
+  padding-top: 32px;                      /* 给标题栏腾出空间 */
   font-size: 0.94rem;
   line-height: 1.6;
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  background: rgba(255, 255, 255, 0.72);   /* 窗口本体：半透明白玻璃 */
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  border: 0.5px solid rgba(0, 0, 0, 0.08);
   box-shadow:
     0 0 0 0.5px rgba(0, 0, 0, 0.04),
-    0 1px 3px rgba(0, 0, 0, 0.05),
-    0 12px 32px rgba(0, 0, 0, 0.08);
-  background: rgba(255, 255, 255, 0.55);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
+    0 2px 6px rgba(0, 0, 0, 0.05),
+    0 20px 48px rgba(0, 0, 0, 0.12),
+    0 40px 80px -20px rgba(0, 0, 0, 0.10);  /* macOS 窗口的"悬浮"双层阴影 */
 }
 
-/* 表头：macOS 灰白玻璃 + 极细绿底边 */
+/* 标题栏：浅灰玻璃 + 底部分隔线 */
+.main-content table::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 32px;
+  background: rgba(246, 246, 248, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.10);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* 红黄绿三个圆点 */
+.main-content table::after {
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: 14px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ff5f57;                          /* 红 */
+  box-shadow:
+    20px 0 0 #febc2e,                           /* 黄 */
+    40px 0 0 #28c840,                           /* 绿 */
+    inset 0 0 0 0.5px rgba(0, 0, 0, 0.08);
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* 表头：浅灰玻璃标题行（在标题栏下方） */
 .main-content table thead th {
-  position: relative;
-  background:
-    /* 顶部白色薄雾（macOS 玻璃上沿） */
-    linear-gradient(180deg,
-      rgba(255, 255, 255, 0.85) 0%,
-      rgba(255, 255, 255, 0.45) 40%,
-      rgba(255, 255, 255, 0.25) 100%),
-    /* 极淡绿调，几乎看不出，只给一点品牌暗示 */
-    linear-gradient(180deg,
-      rgba(0, 166, 81, 0.035) 0%,
-      rgba(0, 166, 81, 0.02) 100%);
-  backdrop-filter: blur(32px) saturate(200%);
-  -webkit-backdrop-filter: blur(32px) saturate(200%);
-  color: #1d1d1f;                      /* macOS 主文字色 */
+  background: rgba(250, 250, 252, 0.6);
+  color: #1d1d1f;
   font-weight: 600;
+  font-size: 0.88rem;
   letter-spacing: 0.01em;
   text-align: left;
-  padding: 11px 16px;
+  padding: 10px 16px;
   border: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.08);
   white-space: nowrap;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.9),     /* 顶部内白高光 */
-    inset 0 -0.5px 0 rgba(0, 0, 0, 0.03);       /* 底部内暗边 */
 }
-
-/* 表头底边的 AC 绿细线：品牌点缀，极细、半透明、不喧宾夺主 */
-.main-content table thead::after {
-  content: "";
-  display: block;
-  height: 2px;
-  background: linear-gradient(90deg,
-    rgba(0, 166, 81, 0) 0%,
-    rgba(0, 166, 81, 0.45) 20%,
-    rgba(0, 166, 81, 0.55) 50%,
-    rgba(0, 166, 81, 0.45) 80%,
-    rgba(0, 166, 81, 0) 100%);
-}
-
-.main-content table thead th:first-child { border-top-left-radius: 10px; }
-.main-content table thead th:last-child  { border-top-right-radius: 10px; }
 
 /* 单元格 */
 .main-content table td {
-  padding: 10px 16px;
+  padding: 11px 16px;
   border: none;
   border-bottom: 0.5px solid rgba(0, 0, 0, 0.06);
   vertical-align: top;
-  background: rgba(255, 255, 255, 0.45);
   color: #1d1d1f;
+  background: transparent;
   transition: background 0.15s ease;
 }
 
-/* 斑马纹：极淡灰，macOS 列表风格 */
+/* 斑马纹：极淡灰 */
 .main-content table tbody tr:nth-child(even) td {
-  background: rgba(0, 0, 0, 0.022);
+  background: rgba(0, 0, 0, 0.018);
 }
 
-/* 悬停：AC 绿淡淡铺一层 + 左侧 2px 绿条 */
+/* 悬停：AC 绿淡底 + 左侧 2px 绿条 */
 .main-content table tbody tr:hover td {
-  background: rgba(0, 166, 81, 0.06);
+  background: rgba(0, 166, 81, 0.07);
 }
 .main-content table tbody tr:hover td:first-child {
   box-shadow: inset 2px 0 0 #00a651;
 }
 
-/* 最后一行圆角 */
-.main-content table tbody tr:last-child td { border-bottom: none; }
-.main-content table tbody tr:last-child td:first-child { border-bottom-left-radius: 10px; }
-.main-content table tbody tr:last-child td:last-child  { border-bottom-right-radius: 10px; }
+/* 最后一行去掉底边线 */
+.main-content table tbody tr:last-child td {
+  border-bottom: none;
+}
 
 /* ---------- 3. 表格上下贴边 ---------- */
 .main-content h1 + table,
@@ -123,43 +131,39 @@
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
+  .main-content table::before { display: none; }  /* 移动端不显示标题栏 */
+  .main-content table::after  { display: none; }
+  .main-content table { padding-top: 0; }
 }
 
-/* ---------- 5. 深色主题下的 macOS 玻璃（Just the Docs 有 dark 模式时自动适配） ---------- */
+/* ---------- 5. 深色模式：macOS 深灰窗口 ---------- */
 @media (prefers-color-scheme: dark) {
   .main-content table {
-    background: rgba(28, 28, 30, 0.55);
+    background: rgba(28, 28, 30, 0.72);
     border-color: rgba(255, 255, 255, 0.08);
     box-shadow:
       0 0 0 0.5px rgba(255, 255, 255, 0.04),
-      0 1px 3px rgba(0, 0, 0, 0.3),
-      0 12px 32px rgba(0, 0, 0, 0.4);
+      0 2px 6px rgba(0, 0, 0, 0.3),
+      0 20px 48px rgba(0, 0, 0, 0.45);
+  }
+  .main-content table::before {
+    background: rgba(38, 38, 40, 0.92);
+    border-bottom-color: rgba(255, 255, 255, 0.08);
   }
   .main-content table thead th {
-    background:
-      linear-gradient(180deg,
-        rgba(255, 255, 255, 0.12) 0%,
-        rgba(255, 255, 255, 0.05) 40%,
-        rgba(255, 255, 255, 0.02) 100%),
-      linear-gradient(180deg,
-        rgba(0, 166, 81, 0.08) 0%,
-        rgba(0, 166, 81, 0.04) 100%);
+    background: rgba(44, 44, 46, 0.6);
     color: #f5f5f7;
     border-bottom-color: rgba(255, 255, 255, 0.08);
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.12),
-      inset 0 -0.5px 0 rgba(0, 0, 0, 0.3);
   }
   .main-content table td {
-    background: rgba(28, 28, 30, 0.45);
     color: #f5f5f7;
     border-bottom-color: rgba(255, 255, 255, 0.06);
   }
   .main-content table tbody tr:nth-child(even) td {
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.025);
   }
   .main-content table tbody tr:hover td {
-    background: rgba(0, 166, 81, 0.14);
+    background: rgba(0, 166, 81, 0.16);
   }
 }
 
