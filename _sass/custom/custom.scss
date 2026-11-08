@@ -9,7 +9,7 @@
   width: 100%;
 }
 
-/* ---------- 2. 表格：AC 绿玻璃表头 + 斑马纹 + hover ---------- */
+/* ---------- 2. 表格：AC 绿玻璃表头 + 扫光 + 斑马纹 + hover ---------- */
 .main-content table {
   width: 100%;
   max-width: 100%;
@@ -20,32 +20,75 @@
   border: none;
 }
 
-/* 表头：AC 绿 + 玻璃质感 */
+/* 表头：AC 绿 + 真正的玻璃质感 + 周期性扫光 */
 .main-content table thead th {
   position: relative;
+  overflow: hidden;            /* 让扫光在表头内被裁剪，不溢出 */
   background:
+    /* ① 顶部白色反光带 */
+    linear-gradient(180deg,
+      rgba(255, 255, 255, 0.32) 0%,
+      rgba(255, 255, 255, 0.06) 30%,
+      rgba(255, 255, 255, 0) 60%),
+    /* ② 左上角径向高光 */
+    radial-gradient(ellipse at 20% -30%,
+      rgba(255, 255, 255, 0.48) 0%,
+      rgba(255, 255, 255, 0) 55%),
+    /* ③ 主体绿色，透明度降低让底色透出来 */
     linear-gradient(135deg,
-      rgba(0, 166, 81, 0.95) 0%,
-      rgba(0, 140, 70, 0.88) 55%,
-      rgba(0, 118, 58, 0.82) 100%),
-    radial-gradient(circle at 18% 0%,
-      rgba(255, 255, 255, 0.28) 0%,
-      transparent 55%);
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
+      rgba(0, 166, 81, 0.66) 0%,
+      rgba(0, 140, 70, 0.58) 50%,
+      rgba(0, 118, 58, 0.72) 100%);
+  backdrop-filter: blur(20px) saturate(200%);
+  -webkit-backdrop-filter: blur(20px) saturate(200%);
   color: #fff;
   font-weight: 600;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.04em;
   text-align: left;
   padding: 12px 16px;
   border: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   white-space: nowrap;
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.42),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.12),
-    0 2px 8px rgba(0, 166, 81, 0.18);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.18);
+    inset 0 1px 0 rgba(255, 255, 255, 0.55),    /* 顶部强高光 */
+    inset 0 -1px 0 rgba(0, 0, 0, 0.18),         /* 底部暗边 */
+    inset 0 0 24px rgba(255, 255, 255, 0.06),   /* 内部柔光 */
+    0 4px 14px rgba(0, 166, 81, 0.22);          /* 外投影 */
+  text-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.35),
+    0 0 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 扫光：斜向高光带周期性从左扫到右 */
+.main-content table thead th::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 40%;
+  height: 200%;
+  background: linear-gradient(105deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.05) 30%,
+    rgba(255, 255, 255, 0.55) 50%,
+    rgba(255, 255, 255, 0.05) 70%,
+    transparent 100%);
+  transform: skewX(-20deg);    /* 倾斜，更像玻璃反光 */
+  animation: header-shine 7s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes header-shine {
+  0%   { left: -60%; }         /* 从表头左外侧开始 */
+  10%  { left: 120%; }         /* 0.7s 扫到右外侧 */
+  100% { left: 120%; }         /* 其余 6.3s 停在不可见区等待 */
+}
+
+/* 对动画敏感的用户自动关闭扫光 */
+@media (prefers-reduced-motion: reduce) {
+  .main-content table thead th::after {
+    animation: none;
+  }
 }
 
 /* 单元格 + 行间细分割线 */
