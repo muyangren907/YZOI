@@ -119,11 +119,13 @@
         backgroundColor: 'transparent',
         tooltip: {
           trigger: 'axis',
+          // tooltip 列表顺序：series 声明反序 → 一等、二等、三等
+          order: 'seriesDesc',
           axisPointer: { type: 'line', lineStyle: { color: 'rgba(128,128,128,0.3)' } }
         },
         legend: {
           top: 0,
-          // legend 显示顺序：好奖项在前（与 series 数组顺序解耦）
+          // 图例顺序：显式指定，好奖项在前
           data: ['一等奖', '二等奖', '三等奖'],
           icon: 'roundRect',
           itemWidth: 14,
@@ -158,6 +160,7 @@
   
     // ===== 6. 初始化入口 =====
     function init() {
+      // 先绑定 tab：不依赖 echarts，保证按钮永远有响应
       document.querySelectorAll('.contest-tab').forEach(function (btn) {
         btn.addEventListener('click', function () {
           document.querySelectorAll('.contest-tab').forEach(function (b) {
@@ -168,6 +171,7 @@
         });
       });
   
+      // 再加载 ECharts 并初始化图表
       loadECharts().then(function () {
         chart = echarts.init(document.getElementById('award-chart'));
         renderChart('CSP-J');
