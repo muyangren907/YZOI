@@ -41,29 +41,33 @@
 //     gap: 8px;
 //   }
 // }
-/* ========== 表格：只保留斑马纹 + 行 hover ========== */
 /* ========== 表格：现代科技感 ========== */
 .main-content table {
   width: 100%;
   max-width: 100%;
   border-collapse: collapse;
-  margin: 1.5rem 0;
+  margin: 0.5rem 0;          /* ← 原来是 1.5rem，压小上下留白 */
   font-size: 0.95rem;
   line-height: 1.65;
   border: none;
 }
 
-/* 表头：深色渐变 + 蓝色下边线 */
+/* 表头：AC 绿 + 透明玻璃 */
 .main-content table thead th {
-  background: linear-gradient(135deg, #1f2937, #374151);
-  color: #f9fafb;
+  background: rgba(0, 166, 81, 0.78);                    /* AC 绿，半透明 */
+  backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);    /* Safari 兼容 */
+  color: #fff;
   font-weight: 600;
   letter-spacing: 0.02em;
   text-align: left;
   padding: 11px 16px;
   border: none;
-  border-bottom: 2px solid #3b82f6;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.28);    /* 玻璃高光边 */
   white-space: nowrap;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),             /* 顶部反光 */
+    0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 /* 单元格 + 行间细分割线 */
@@ -72,28 +76,28 @@
   border: none;
   border-bottom: 1px solid rgba(128, 128, 128, 0.18);
   vertical-align: top;
-  background: transparent;   /* 先清掉主题可能的默认背景 */
+  background: transparent;
 }
 
-/* 斑马纹：加在 td 上（关键），透明度 0.06 保证肉眼可见 */
+/* 斑马纹 */
 .main-content table tbody tr:nth-child(even) td {
   background: rgba(59, 130, 246, 0.06);
 }
 
-/* 悬停：整行加深 + 左侧蓝色强调条 */
+/* 悬停：整行加深 + 左侧 AC 绿强调条 */
 .main-content table tbody tr:hover td {
-  background: rgba(59, 130, 246, 0.12);
+  background: rgba(0, 166, 81, 0.10);
 }
 .main-content table tbody tr:hover td:first-child {
-  box-shadow: inset 3px 0 0 #3b82f6;
+  box-shadow: inset 3px 0 0 #00a651;
 }
 
-/* 最后一行去掉底边线，避免表格底部多出一条 */
+/* 最后一行去掉底边线 */
 .main-content table tbody tr:last-child td {
   border-bottom: none;
 }
 
-/* 手机端：宽表格横向滚动，不撑破内容区 */
+/* 手机端：宽表格横向滚动 */
 @media (max-width: 768px) {
   .main-content table {
     display: block;
