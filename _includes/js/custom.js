@@ -25,9 +25,9 @@
       },
       'NGOI': {
         years:  ['2021', '2022', '2023', '2024', '2025'],
-        first:  [0, 0, 0, 0, 0, ],
-        second: [0, 0, 0, 0, 0, ],
-        third:  [0, 0, 0, 0, 2, ]
+        first:  [0, 0, 0, 0, 0],
+        second: [0, 0, 0, 0, 0],
+        third:  [0, 0, 0, 0, 2]
       },
       'NOI': {
         years:  ['2021', '2022', '2023', '2024', '2025', '2026'],
@@ -123,6 +123,8 @@
         },
         legend: {
           top: 0,
+          // legend 显示顺序：好奖项在前（与 series 数组顺序解耦）
+          data: ['一等奖', '二等奖', '三等奖'],
           icon: 'roundRect',
           itemWidth: 14,
           itemHeight: 4,
@@ -144,17 +146,18 @@
           axisLabel: { color: '#888' },
           splitLine: { lineStyle: { color: 'rgba(128,128,128,0.12)' } }
         },
+        // 渲染顺序：先三等（底层）→ 再二等（中层）→ 最后一等（顶层）
+        // ECharts 中后声明的 series 绘制在上层，重合时好奖项盖住差奖项
         series: [
-          makeSeries('一等奖', d.first, GOLD),
+          makeSeries('三等奖', d.third,  BRONZE),
           makeSeries('二等奖', d.second, SILVER),
-          makeSeries('三等奖', d.third, BRONZE)
+          makeSeries('一等奖', d.first,  GOLD)
         ]
       }, { replaceMerge: ['series'] });
     }
   
     // ===== 6. 初始化入口 =====
     function init() {
-      // 先绑定 tab：不依赖 echarts，保证按钮永远有响应
       document.querySelectorAll('.contest-tab').forEach(function (btn) {
         btn.addEventListener('click', function () {
           document.querySelectorAll('.contest-tab').forEach(function (b) {
@@ -165,7 +168,6 @@
         });
       });
   
-      // 再加载 ECharts 并初始化图表
       loadECharts().then(function () {
         chart = echarts.init(document.getElementById('award-chart'));
         renderChart('CSP-J');
