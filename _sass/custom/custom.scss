@@ -3,16 +3,16 @@
    文件：_sass/custom/custom.scss
    ===================================================== */
 
-/* ---------- 1. 正文自适应 + 极淡背景（让玻璃有东西可模糊） ---------- */
+/* ---------- 1. 正文自适应 + 背景光斑（玻璃背后要有东西） ---------- */
 .main-content {
   max-width: none;
   width: 100%;
   background:
-    radial-gradient(ellipse 800px 600px at 10% 0%,  rgba(0, 200, 120, 0.08) 0%, transparent 50%),
-    radial-gradient(ellipse 900px 700px at 90% 100%, rgba(70, 130, 220, 0.06) 0%, transparent 55%);
+    radial-gradient(ellipse 800px 600px at 10% 0%,  rgba(0, 200, 120, 0.10) 0%, transparent 50%),
+    radial-gradient(ellipse 900px 700px at 90% 100%, rgba(70, 130, 220, 0.08) 0%, transparent 55%);
 }
 
-/* ---------- 2. 表格：Aero 玻璃 ---------- */
+/* ---------- 2. 表格：高透明 Aero 玻璃 ---------- */
 .main-content table {
   width: 100%;
   max-width: 100%;
@@ -23,57 +23,60 @@
   margin: 0;
   font-size: 0.95rem;
   line-height: 1.65;
-  /* 玻璃外框：细白边 + 极淡绿描边 */
-  border: 1px solid rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.65);
   box-shadow:
-    0 0 0 1px rgba(0, 140, 70, 0.08),          /* 内侧极淡绿描边 */
+    0 0 0 1px rgba(0, 140, 70, 0.06),
     0 2px 4px rgba(0, 80, 40, 0.04),
-    0 12px 40px rgba(0, 80, 40, 0.10);          /* 柔和的大范围阴影 */
+    0 12px 40px rgba(0, 80, 40, 0.10);
 }
 
-/* 表头：AC 绿 Aero 玻璃 */
+/* 表头：极淡 AC 绿 + 白雾 Aero 玻璃 */
 .main-content table thead th {
   position: relative;
   background:
-    /* ① 顶部白色高光带：玻璃上沿的反光（Aero 标志） */
+    /* ① 顶部白色高光带（Aero 标志性上沿反光） */
     linear-gradient(180deg,
-      rgba(255, 255, 255, 0.85) 0%,
-      rgba(255, 255, 255, 0.35) 4%,
-      rgba(255, 255, 255, 0.08) 30%,
-      rgba(255, 255, 255, 0) 55%),
+      rgba(255, 255, 255, 0.92) 0%,
+      rgba(255, 255, 255, 0.42) 5%,
+      rgba(255, 255, 255, 0.10) 32%,
+      rgba(255, 255, 255, 0) 60%),
     /* ② 左上柔和光晕 */
     radial-gradient(ellipse at 15% -60%,
-      rgba(255, 255, 255, 0.55) 0%,
+      rgba(255, 255, 255, 0.65) 0%,
       rgba(255, 255, 255, 0) 65%),
-    /* ③ 主体：低透明度 AC 绿，上深下浅，形成玻璃厚度感 */
+    /* ③ 白色雾面：Aero 玻璃的"白雾"层，提升通透感 */
     linear-gradient(180deg,
-      rgba(0, 170, 85, 0.52) 0%,
-      rgba(0, 145, 72, 0.42) 55%,
-      rgba(0, 125, 62, 0.48) 100%);
-  backdrop-filter: blur(24px) saturate(190%);
-  -webkit-backdrop-filter: blur(24px) saturate(190%);
+      rgba(255, 255, 255, 0.18) 0%,
+      rgba(255, 255, 255, 0.08) 50%,
+      rgba(255, 255, 255, 0.14) 100%),
+    /* ④ 主体：极低透明度 AC 绿 */
+    linear-gradient(180deg,
+      rgba(0, 175, 88, 0.32) 0%,
+      rgba(0, 150, 75, 0.22) 55%,
+      rgba(0, 130, 65, 0.28) 100%);
+  backdrop-filter: blur(32px) saturate(200%);
+  -webkit-backdrop-filter: blur(32px) saturate(200%);
   color: #fff;
   font-weight: 600;
   letter-spacing: 0.04em;
   text-align: left;
   padding: 12px 16px;
   border: none;
-  /* 底部一条深绿暗边，分隔表头与表体 */
-  border-bottom: 1px solid rgba(0, 70, 35, 0.28);
+  border-bottom: 1px solid rgba(0, 80, 40, 0.18);
   white-space: nowrap;
-  /* 多层文字阴影，让白字在透明绿上依然锐利 */
+  /* 强多层文字阴影：极淡绿底上白字依然锐利 */
   text-shadow:
-    0 1px 2px rgba(0, 50, 25, 0.55),
-    0 0 12px rgba(0, 50, 25, 0.25);
-  /* Aero 边缘光：顶部纯白亮边 + 内部柔光 */
+    0 1px 2px rgba(0, 40, 20, 0.85),
+    0 0 4px  rgba(0, 40, 20, 0.60),
+    0 0 14px rgba(0, 40, 20, 0.40);
+  /* Aero 边缘光：顶部纯白亮边 + 底部暗边 + 内部柔光 */
   box-shadow:
-    inset 0 2px 0 rgba(255, 255, 255, 0.75),    /* 顶部 2px 白边 */
-    inset 0 1px 0 rgba(255, 255, 255, 0.95),    /* 再叠 1px 更亮 */
-    inset 0 -1px 0 rgba(0, 60, 30, 0.22),       /* 底部暗边 */
-    inset 0 0 24px rgba(255, 255, 255, 0.12);   /* 内部柔光 */
+    inset 0 2px 0 rgba(255, 255, 255, 0.85),
+    inset 0 1px 0 rgba(255, 255, 255, 1),
+    inset 0 -1px 0 rgba(0, 60, 30, 0.20),
+    inset 0 0 28px rgba(255, 255, 255, 0.16);
 }
 
-/* 表头圆角：首列左上、末列右上 */
 .main-content table thead th:first-child { border-top-left-radius: 8px; }
 .main-content table thead th:last-child  { border-top-right-radius: 8px; }
 
@@ -83,33 +86,27 @@
   border: none;
   border-bottom: 1px solid rgba(0, 130, 65, 0.10);
   vertical-align: top;
-  background: rgba(255, 255, 255, 0.6);          /* 表体淡白玻璃底 */
+  background: rgba(255, 255, 255, 0.55);
   transition: background 0.18s ease;
 }
 
 /* 斑马纹 */
 .main-content table tbody tr:nth-child(even) td {
-  background: rgba(0, 175, 88, 0.05);
+  background: rgba(0, 175, 88, 0.04);
 }
 
-/* 悬停：整行淡绿 + 左侧 AC 绿强调条 */
+/* 悬停 */
 .main-content table tbody tr:hover td {
-  background: rgba(0, 175, 88, 0.11);
+  background: rgba(0, 175, 88, 0.10);
 }
 .main-content table tbody tr:hover td:first-child {
   box-shadow: inset 3px 0 0 #00a651;
 }
 
-/* 最后一行：去掉底边线 + 圆角 */
-.main-content table tbody tr:last-child td {
-  border-bottom: none;
-}
-.main-content table tbody tr:last-child td:first-child {
-  border-bottom-left-radius: 8px;
-}
-.main-content table tbody tr:last-child td:last-child {
-  border-bottom-right-radius: 8px;
-}
+/* 最后一行圆角 */
+.main-content table tbody tr:last-child td { border-bottom: none; }
+.main-content table tbody tr:last-child td:first-child { border-bottom-left-radius: 8px; }
+.main-content table tbody tr:last-child td:last-child  { border-bottom-right-radius: 8px; }
 
 /* ---------- 3. 表格上下贴边 ---------- */
 .main-content h1 + table,
