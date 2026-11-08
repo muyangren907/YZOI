@@ -14,7 +14,7 @@
   width: 100%;
   max-width: 100%;
   border-collapse: collapse;
-  margin: 0;                 /* 表格自身不留上下左右 margin */
+  margin: 0;
   font-size: 0.95rem;
   line-height: 1.65;
   border: none;
@@ -42,9 +42,9 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.35);
   white-space: nowrap;
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.42),   /* 顶部反光 */
-    inset 0 -1px 0 rgba(0, 0, 0, 0.12),        /* 底部压暗 */
-    0 2px 8px rgba(0, 166, 81, 0.18);          /* 外投影 */
+    inset 0 1px 0 rgba(255, 255, 255, 0.42),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.12),
+    0 2px 8px rgba(0, 166, 81, 0.18);
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.18);
 }
 
@@ -94,4 +94,42 @@
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
+}
+
+/* ---------- 5. 全局金牌光标 ---------- */
+/* 32x32 SVG 金牌：红色丝带 + 金色圆牌 + 数字 1
+   热点设在 (16,16)，即金牌中心 */
+$gold-cursor: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='32'%20height='32'%20viewBox='0%200%2032%2032'%3E%3Cdefs%3E%3CradialGradient%20id='g'%20cx='35%25'%20cy='30%25'%20r='75%25'%3E%3Cstop%20offset='0%25'%20stop-color='%23FFF3B0'/%3E%3Cstop%20offset='45%25'%20stop-color='%23FFD24A'/%3E%3Cstop%20offset='100%25'%20stop-color='%23B8860B'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cpath%20d='M11%202%20L16%2010%20L21%202%20L19%202%20L16%207%20L13%202%20Z'%20fill='%23E63946'/%3E%3Ccircle%20cx='16'%20cy='19'%20r='10'%20fill='url(%23g)'%20stroke='%238B6508'%20stroke-width='1'/%3E%3Ccircle%20cx='16'%20cy='19'%20r='7'%20fill='none'%20stroke='%23FFF3B0'%20stroke-width='1'%20opacity='0.8'/%3E%3Ctext%20x='16'%20y='23'%20font-size='9'%20font-family='Arial'%20font-weight='bold'%20text-anchor='middle'%20fill='%238B6508'%3E1%3C/text%3E%3C/svg%3E") 16 16, auto;
+
+html,
+body {
+  cursor: $gold-cursor;
+}
+
+/* 链接、按钮、tab 也用金牌，保留 pointer 作为兜底 */
+a,
+button,
+[role="button"],
+summary,
+label[for],
+.contest-tab,
+input[type="submit"],
+input[type="button"] {
+  cursor: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='32'%20height='32'%20viewBox='0%200%2032%2032'%3E%3Cdefs%3E%3CradialGradient%20id='g'%20cx='35%25'%20cy='30%25'%20r='75%25'%3E%3Cstop%20offset='0%25'%20stop-color='%23FFF3B0'/%3E%3Cstop%20offset='45%25'%20stop-color='%23FFD24A'/%3E%3Cstop%20offset='100%25'%20stop-color='%23B8860B'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cpath%20d='M11%202%20L16%2010%20L21%202%20L19%202%20L16%207%20L13%202%20Z'%20fill='%23E63946'/%3E%3Ccircle%20cx='16'%20cy='19'%20r='10'%20fill='url(%23g)'%20stroke='%238B6508'%20stroke-width='1'/%3E%3Ccircle%20cx='16'%20cy='19'%20r='7'%20fill='none'%20stroke='%23FFF3B0'%20stroke-width='1'%20opacity='0.8'/%3E%3Ctext%20x='16'%20y='23'%20font-size='9'%20font-family='Arial'%20font-weight='bold'%20text-anchor='middle'%20fill='%238B6508'%3E1%3C/text%3E%3C/svg%3E") 16 16, pointer;
+}
+
+/* 文本输入区域保留默认光标，方便编辑 */
+input[type="text"],
+input[type="search"],
+input[type="email"],
+input[type="password"],
+textarea,
+[contenteditable="true"] {
+  cursor: text;
+}
+
+/* 禁用状态的元素 */
+[disabled],
+.disabled {
+  cursor: not-allowed;
 }
